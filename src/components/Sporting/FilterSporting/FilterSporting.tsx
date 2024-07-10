@@ -1,23 +1,26 @@
-//2nd and all ok section
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetProductsQuery } from '@/redux/api/api';
 import './FilterSection.css';
-import { clearFilters, filterProducts, loadFilterProducts, updateFiltersValue } from '@/redux/features/filterProductsSlice';
-
-
-
+import {
+  clearFilters,
+  filterProducts,
+  loadFilterProducts,
+  updateFiltersValue,
+} from '@/redux/features/filterProductsSlice';
+import { FProduct, TFilters } from '@/types';
+import { RootState } from '@/redux/hooks/store';
 
 const FilterSporting = () => {
   const dispatch = useDispatch();
-  const { data:products,  isLoading } = useGetProductsQuery(undefined);
-  console.log(products)
+  const { data: products, isLoading } = useGetProductsQuery(undefined);
+  console.log(products);
 
-  const { filters, all_products } = useSelector((state) => state.filter);
+  const { filters, all_products } = useSelector((state: RootState) => state.filter);
 
   useEffect(() => {
     if (products) {
-      dispatch(loadFilterProducts(products));
+      dispatch(loadFilterProducts(products as FProduct[]));
     }
   }, [products, dispatch]);
 
@@ -25,8 +28,8 @@ const FilterSporting = () => {
     dispatch(filterProducts());
   }, [dispatch, filters]);
 
-  const getUniqueData = (products, property) => {
-    let newValue = products.map((curElem) => curElem[property]);
+  const getUniqueData = (products: FProduct[], property: keyof FProduct) => {
+    const newValue = products.map((curElem) => curElem[property]);
     return ['all', ...new Set(newValue)];
   };
 
@@ -47,8 +50,8 @@ const FilterSporting = () => {
             onChange={(e) =>
               dispatch(
                 updateFiltersValue({
-                  name: e.target.name,
-                  value: e.target.value,
+                  name: e.target.name as keyof TFilters,
+                  value: (e.target as HTMLInputElement).value,
                 })
               )
             }
@@ -69,8 +72,8 @@ const FilterSporting = () => {
               onClick={(e) =>
                 dispatch(
                   updateFiltersValue({
-                    name: e.target.name,
-                    value: e.target.value,
+                    name: (e.target as HTMLButtonElement).name as keyof TFilters,
+                    value: (e.target as HTMLButtonElement).value,
                   })
                 )
               }
@@ -92,7 +95,10 @@ const FilterSporting = () => {
           value={filters.price}
           onChange={(e) =>
             dispatch(
-              updateFiltersValue({ name: e.target.name, value: e.target.value })
+              updateFiltersValue({
+                name: e.target.name as keyof TFilters,
+                value: (e.target as HTMLInputElement).value,
+              })
             )
           }
         />

@@ -2,11 +2,14 @@ import { sortingProducts, updateSortValue } from '@/redux/features/filterProduct
 import './Sort.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeEvent } from 'react';
+import { RootState } from '@/redux/hooks/store';
+
+
 
 const SportingSort = () => {
   const dispatch = useDispatch();
   const { filter_products, sorting_value } = useSelector(
-    (state) => state.filter
+    (state: RootState) => state.filter
   );
 
   const handleSortingChange = (e: ChangeEvent<HTMLSelectElement>) => {

@@ -11,6 +11,16 @@ export type TProduct = {
     price: number;
     stock: number;
   };
+
+  
+  interface FilterState {
+    filter_products: TProduct[];
+    isLoading: boolean;
+  }
+  
+  export interface RootState {
+    filter: FilterState;
+  }
   
   // Define the initial state type
   export type TInitialState = {
@@ -30,15 +40,39 @@ export type TProduct = {
   };
 
 
- export type TProducts = {
+
+
+  export interface Item {
+    _id: string;
     name: string;
-    description: string;
+    quantity: number;
+    price: number;
+    image: string
+    // Add other properties as needed
+  }
+
+
+  //start filter type  component
+
+  export interface FProduct {
+    id: string;
+    name: string;
     category: string;
-    brand: string;
-    isFeatured: boolean;
-    image: string;
-    rating?: number;
-    quantity?: number;
-    price?: number;
-    stock?: number;
-  };
+    price: number;
+    // add other product fields as needed
+  }
+
+
+
+  export interface TFilters {
+    text: string;
+    category: string;
+    price: number;
+    minPrice: number;
+    maxPrice: number;
+  }
+
+  
+ export interface Props {
+    products: TProduct[];
+  }

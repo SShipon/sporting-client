@@ -58,7 +58,7 @@ const Navbar = () => {
               About Us
             </Link>
             <Link
-              to="/products"
+              to="/sporting"
               className="block py-2 text-gray-800 hover:text-gray-400"
             >
               Products

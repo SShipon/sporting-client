@@ -1,5 +1,9 @@
 import ComButton from "@/pages/shared/Button/ComButton";
-import Slider from "./Slider";
+import SliderBanner from "./Slider/SliderBanner";
+
+
+
+
 
 const Banner = () => {
   return (
@@ -18,7 +22,7 @@ const Banner = () => {
         </div>
 
         <div className="basis-1/2">
-          <Slider />
+            <SliderBanner />
         </div>
       </div>
     </div>

@@ -1,8 +1,13 @@
 
 import './CartAmountToggle.css';
 import { FaMinus ,FaPlus } from 'react-icons/fa';
+interface CartAmountToggleProps {
+  quantity: number;
+  setDecrease: () => void;
+  setIncrease: () => void;
+}
 
-const CartAmountToggle = ({quantity,setIncrease,setDecrease}) => {
+ const CartAmountToggle: React.FC<CartAmountToggleProps> = ({ quantity, setDecrease, setIncrease }) =>  {
     return (
       <div>
         <div className="cart-button">

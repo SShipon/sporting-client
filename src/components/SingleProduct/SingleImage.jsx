@@ -17,7 +17,7 @@ const SingleImage = ({ imgs=[{ url: " " }] }) => {
         </div>
         <div>
           <img
-            //src={imgs[2].url}
+          
             src={mainImage.url}
             alt={mainImage.filename}
             className="w-[300px] h-[300px] object-cover"

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface CartItem {
-  id: string;
+  _id: string;
   name: string;
   image: string;
   price: number;
@@ -19,7 +19,7 @@ const initialState: CartState = {
   cart: [],
   total_cart_item: 0,
   total_price: 0,
-  shipping_fee: 500,
+  shipping_fee: 5,
 };
 
 const cartSlice = createSlice({
@@ -27,8 +27,8 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const { id, quantity } = action.payload;
-      const existingProduct = state.cart.find((item) => item.id === id);
+      const { _id, quantity } = action.payload;
+      const existingProduct = state.cart.find((item) => item._id === _id);
 
       if (existingProduct) {
         existingProduct.quantity += quantity;
@@ -37,19 +37,19 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action: PayloadAction<string>) => {
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
+      state.cart = state.cart.filter((item) => item._id !== action.payload);
     },
     clearCart: (state) => {
       state.cart = [];
     },
     setDecrease: (state, action: PayloadAction<string>) => {
-      const item = state.cart.find((item) => item.id === action.payload);
+      const item = state.cart.find((item) => item._id === action.payload);
       if (item && item.quantity > 1) {
         item.quantity--;
       }
     },
     setIncrease: (state, action: PayloadAction<string>) => {
-      const item = state.cart.find((item) => item.id === action.payload);
+      const item = state.cart.find((item) => item._id === action.payload);
       if (item) {
         item.quantity++;
       }

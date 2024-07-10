@@ -1,12 +1,11 @@
 import AboutUs from '@/components/About Us/AboutUs';
 import AddProduct from '@/components/AddSporting/AddSporting';
 import Cart from '@/components/Cart/Cart/Cart';
+import Checkout from '@/components/Cart/Checkout/Checkout';
 import MainLayout from '@/components/Layouts/MainLayouts';
 import SportDetails from '@/components/SingleProduct/SportDetails/SportDetails';
-
 import Home from '@/pages/Home/Home';
-import Products from '@/pages/Products/Products';
-
+import Sporting from '@/pages/Sporting/Sporting';
 import NotFound from '@/pages/shared/NotFound';
 import { createBrowserRouter } from 'react-router-dom';
 const router = createBrowserRouter([
@@ -28,8 +27,8 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: 'products',
-        element: <Products />,
+        path:'sporting',
+        element:<Sporting />
       },
       {
         path: 'addProduct',
@@ -46,6 +45,11 @@ const router = createBrowserRouter([
        path:'cart',
        element:<Cart />
     },
+
+    {
+      path:'checkout',
+      element:<Checkout />
+   },
       {
         path: '*',
         element: <NotFound />,

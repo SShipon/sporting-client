@@ -1,10 +1,17 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import './Cart.css';
 import { useEffect } from 'react';
-import { clearCart, totalCartItem, cartTotalPrice } from '@/redux/features/cartSlice';
-import CartItem from '../CartItem/CartItem';
-import { RootState } from '../../redux/store'; // Adjust the path to your store
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import "./Cart.css";
+
+import {
+  clearCart,
+  totalCartItem,
+  cartTotalPrice,
+} from "@/redux/features/cartSlice";
+import CartItem from "../CartItem/CartItem";
+import { Button } from "@/components/ui/button";
+import { Item } from "@/types";
+import { RootState } from '@/redux/hooks/store';
 
 const Cart = () => {
   const { cart, total_price, shipping_fee, total_cart_item } = useSelector(
@@ -26,47 +33,62 @@ const Cart = () => {
   }
 
   return (
-    <div className="container mx-auto">
-      <div className="cart-heading grid-five-column">
-        <p>Item</p>
-        <p className="cart-hide">Price</p>
-        <p>Quantity</p>
-        <p className="cart-hide">Subtotal</p>
-        <p>Remove</p>
-      </div>
-      <hr />
-      <div className="cart-item">
-        {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
-        ))}
-      </div>
-      <hr />
-      <div className="cart-two-button">
-        <NavLink to="/products" className="left-btn">
-          Continue Shopping
-        </NavLink>
-        <button className="right-btn" onClick={() => dispatch(clearCart())}>
-          Clear Cart
-        </button>
-      </div>
-      {/* ------TOTAL PRICE ----------*/}
-      <div className="order-total--amount">
-        <div className="order-total--subdata">
-          <div className="total-field">
-            <p>Total Items:</p>
-            <p>{total_cart_item}</p>
+    <div className="my-20">
+      <div className="flex lg:flex-row flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+          <div className="cart-item">
+            {cart.map((item: Item) => ( // Ensure item is typed as Item
+              <CartItem key={item._id} item={item} />
+            ))}
           </div>
-          <div className="total-field">
-            <p>subtotal:</p>
-            <p>{total_price}</p>
+
+          {/* Add other components as needed */}
+        </div>
+
+        <div className="flex">
+          <div className="py-2 px-5">
+            <div className="py-2">
+              <Button className="bg-fuchsia-500">
+                <NavLink to="/products">Continue Product</NavLink>
+              </Button>
+            </div>
+            <div>
+              <Button
+                className="bg-cyan-600"
+                onClick={() => dispatch(clearCart())}
+              >
+                Replace Product
+              </Button>
+            </div>
           </div>
-          <div className="total-field">
-            <p>shipping fee:</p>
-            <p>{shipping_fee}</p>
-          </div>
-          <div className="total-field">
-            <p>order Total :</p>
-            <p>{shipping_fee + total_price}</p>
+
+          <div className="bg-gray-700 w-[400px] h-[230px] p-5 rounded-2xl">
+            <div className="text-white">
+              <p className="">
+                Total Items:
+                <span className="text-2xl px-2">${total_cart_item}</span>{" "}
+              </p>
+
+              <p>
+                Subtotal: <span className="text-2xl px-2">${total_price}</span>
+              </p>
+
+              <p>
+                Shipping Fee:{" "}
+                <span className="text-2xl px-2">${shipping_fee}</span>{" "}
+              </p>
+
+              <p>
+                Order Total :{" "}
+                <span className="text-2xl px-2">${shipping_fee + total_price}</span>{" "}
+              </p>
+
+              <div className="py-4">
+                <Button className="w-full font-bold bg-pink-600">
+                  <NavLink to="/checkout">Checkout</NavLink>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

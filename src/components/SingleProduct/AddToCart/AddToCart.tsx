@@ -6,10 +6,10 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 
 interface Products {
-  id: string;
+  _id: string;
   stock: number;
   name: string;
-  image: { url: string };
+  image: string,
   price: number;
 }
 
@@ -21,7 +21,7 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
   console.log(singleProduct, 'data card add '); // Log the singleProduct object
 
   const dispatch = useDispatch();
-  const { id, stock, name, image, price } = singleProduct;
+  const { _id, stock, name, image, price } = singleProduct;
 
   const [quantity, setQuantity] = useState(1);
 
@@ -33,7 +33,7 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id, name, image: image.url, price, quantity }));
+    dispatch(addToCart({ _id, name, image, price, quantity }));
   };
 
   return (
