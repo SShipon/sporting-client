@@ -34,7 +34,7 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
             <div className="p-4 flex flex-col flex-grow">
                 <p className="mb-4">{description}</p>
                  <del><p className="mb-2 text-2xl font-extrabold"> {original}</p></del>
-                <p className="mb-2"> {discounted} for {term}</p>
+                <p className="mb-2 text-1xl"> {discounted} for {term}</p>
                  <div>
                  <span className="mb-6 text-3xl font-extrabold"> {renewal_price}</span>
                  <span className="px-1 text-2xl">/mo</span>
