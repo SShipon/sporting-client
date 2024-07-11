@@ -13,7 +13,7 @@ const plansData = [
       "discounted": "$1.99/mo",
       "term": "36-month term"
     },
-    "renewal_price": "$5.99/mo",
+    "renewal_price": "$5.99",
     "features": [
       "1 website",
       "50 GB SSD storage",
@@ -39,7 +39,7 @@ const plansData = [
       "discounted": "$4.99/mo",
       "term": "24-month term"
     },
-    "renewal_price": "$9.99/mo",
+    "renewal_price": "$9.99",
     "features": [
       "Unlimited websites",
       "200 GB SSD storage",
@@ -69,7 +69,7 @@ const plansData = [
       "discounted": "$7.99/mo",
       "term": "12-month term"
     },
-    "renewal_price": "$12.99/mo",
+    "renewal_price": "$12.99",
     "features": [
       "Unlimited websites",
       "500 GB SSD storage",
