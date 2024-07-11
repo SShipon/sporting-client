@@ -6,8 +6,10 @@ import Item from './Item';
 const HomeItem = () => {
   
   const { data: products, isLoading, isError } = useGetProductsQuery({
+  
     isFeatured: true 
   });
+  console.log(products)
 
   useEffect(() => {
  
@@ -24,8 +26,8 @@ const HomeItem = () => {
   
   return (
     <div>
-      <h2 className='text-center text-4xl'>Featured Products</h2>
-      <div className="product-list">
+      <h2 className='text-center font-bold text-xl lg:text-4xl'>Featured Products</h2>
+      <div className="">
         
         <Item products={products}>
                

@@ -1,6 +1,5 @@
 import React, { FormEvent, useState } from "react";
 import { useAddProductMutation } from "@/redux/api/api";
-
 type TProduct = {
   name: string;
   description: string;
@@ -33,7 +32,7 @@ const AddProduct: React.FC = () => {
     setProduct((prevProduct) => ({
       ...prevProduct,
       [name]:
-        name === "rating" ||
+        name === "rating" || 
         name === "quantity" ||
         name === "price" ||
         name === "stock"
@@ -53,6 +52,7 @@ const AddProduct: React.FC = () => {
       isFeatured: true,
       image: "",
     });
+   alert('add product')
   };
 
   return (
@@ -133,12 +133,13 @@ const AddProduct: React.FC = () => {
             />
             <input
               type="number"
-              step="0.1"
+              step="1"
               name="rating"
               value={product.rating || ""}
               onChange={handleChange}
               placeholder="Rating"
               className="w-full p-2 mb-4 border border-gray-300 rounded"
+              max="5"
               required
             />
             <input
@@ -156,13 +157,14 @@ const AddProduct: React.FC = () => {
        <div className="lg:mx-32  w-96 mx-auto ">
        <button
             type="submit"
-            className=" bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            className=" bg-blue-500 text-white p-2 lg:mx-24 w-full  rounded hover:bg-blue-600"
           >
             Add Product
           </button>
        </div>
        
       </form>
+      
     </div>
   );
 };

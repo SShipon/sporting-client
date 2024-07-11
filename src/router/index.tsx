@@ -5,8 +5,9 @@ import Checkout from '@/components/Cart/Checkout/Checkout';
 import MainLayout from '@/components/Layouts/MainLayouts';
 import SportDetails from '@/components/SingleProduct/SportDetails/SportDetails';
 import Home from '@/pages/Home/Home';
-import Sporting from '@/pages/Sporting/Sporting';
+
 import NotFound from '@/pages/shared/NotFound';
+import Sporting from '@/pages/Sporting/Sporting';
 import { createBrowserRouter } from 'react-router-dom';
 const router = createBrowserRouter([
   {

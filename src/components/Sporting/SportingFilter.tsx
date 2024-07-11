@@ -1,17 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetProductsQuery } from '@/redux/api/api';
-import './FilterSection.css';
-import {
-  clearFilters,
-  filterProducts,
-  loadFilterProducts,
-  updateFiltersValue,
-} from '@/redux/features/filterProductsSlice';
-import { FProduct, TFilters } from '@/types';
+import { clearFilters, filterProducts, loadFilterProducts, updateFiltersValue } from '@/redux/features/filterProductsSlice';
 import { RootState } from '@/redux/hooks/store';
+import { FProduct, TFilters } from '@/types'; // Ensure these are correctly imported
 
-const FilterSporting = () => {
+const SportingFilter = () => {
   const dispatch = useDispatch();
   const { data: products, isLoading } = useGetProductsQuery(undefined);
   console.log(products);
@@ -20,7 +14,7 @@ const FilterSporting = () => {
 
   useEffect(() => {
     if (products) {
-      dispatch(loadFilterProducts(products as FProduct[]));
+      dispatch(loadFilterProducts(products as FProduct[])); // Ensure products is cast to FProduct[]
     }
   }, [products, dispatch]);
 
@@ -40,10 +34,11 @@ const FilterSporting = () => {
   }
 
   return (
-    <div>
-      <div className="w-full border-rose-700">
-        <form onSubmit={(e) => e.preventDefault()}>
+    <div className="p-4 bg-white shadow-md rounded-lg">
+      <div className="w-full border-rose-700 mb-4">
+        <form onSubmit={(e) => e.preventDefault()} className="flex flex-col md:flex-row md:items-center md:space-x-4">
           <input
+          
             type="text"
             name="text"
             value={filters.text}
@@ -56,13 +51,14 @@ const FilterSporting = () => {
               )
             }
             placeholder="Search"
+            className="w-full md:w-auto p-2 border border-gray-300 rounded-md mb-2 md:mb-0"
           />
         </form>
       </div>
 
-      <div className="filter-category">
-        <h4>Category</h4>
-        <div className="category-name">
+      <div className="my-4">
+        <h4 className="py-4">Category</h4>
+        <div className="flex flex-col md:flex-row md:items-center md:space-x-4 text-justify">
           {categoryOnlyData.map((curElem, index) => (
             <button
               key={index}
@@ -77,6 +73,7 @@ const FilterSporting = () => {
                   })
                 )
               }
+              className="p-2 border border-gray-300 rounded-md mb-2 md:mb-0"
             >
               {curElem}
             </button>
@@ -84,31 +81,39 @@ const FilterSporting = () => {
         </div>
       </div>
 
-      <div className="filter-price">
-        <h4>Price</h4>
-        <p>{filters.price}</p>
-        <input
-          type="range"
-          name="price"
-          min={filters.minPrice}
-          max={filters.maxPrice}
-          value={filters.price}
-          onChange={(e) =>
-            dispatch(
-              updateFiltersValue({
-                name: e.target.name as keyof TFilters,
-                value: (e.target as HTMLInputElement).value,
-              })
-            )
-          }
-        />
+      <div className="my-4">
+        <h4 className="py-4">Price</h4>
+        <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
+          <p>{filters.price}</p>
+          <input
+            type="range"
+            name="price"
+            min={filters.minPrice}
+            max={filters.maxPrice}
+            value={filters.price}
+            onChange={(e) =>
+              dispatch(
+                updateFiltersValue({
+                  name: e.target.name as keyof TFilters,
+                  value: (e.target as HTMLInputElement).value,
+                })
+              )
+            }
+            className="w-full md:w-auto"
+          />
+        </div>
       </div>
 
-      <div className="filter-clear">
-        <button onClick={() => dispatch(clearFilters())}>Clear Filters</button>
+      <div className="my-4 text-center">
+        <button 
+          onClick={() => dispatch(clearFilters())} 
+          className="p-2 bg-red-500 text-white rounded-md"
+        >
+          Clear Filters
+        </button>
       </div>
     </div>
   );
 };
 
-export default FilterSporting;
+export default SportingFilter;
