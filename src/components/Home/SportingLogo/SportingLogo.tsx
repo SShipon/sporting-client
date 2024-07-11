@@ -63,7 +63,7 @@ const SportingLogo = () => {
   return (
     <div className="w-full  pt-5 pb-20 ">
       <div className="text-center my-10">
-        <h2 className="text-center lg:text-5xl md:text-xl text-base  font-bold my-10 px-10">
+        <h2 className="text-center lg:text-4xl  md:text-xl text-base  font-bold my-10 px-10">
           OUR TOP WORLD SPORTING CLUB PARTNERSHIP
         </h2>
         <p className="mt-4">

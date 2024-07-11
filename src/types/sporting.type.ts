@@ -82,3 +82,24 @@ export type TProduct = {
  export interface Props {
     products: TProduct[];
   }
+
+
+  interface Price {
+    original: string;
+    discounted: string;
+    term: string;
+}
+
+interface PlanData {
+    plan: string; // 'plan' is used, not 'planName'
+    description: string;
+    id:number,
+    price: Price;
+    renewal_price: string;
+    features: string[];
+    choose: string;
+}
+
+export interface PlanProps {
+    plan: PlanData;
+}
