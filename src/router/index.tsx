@@ -4,6 +4,7 @@ import Cart from '@/components/Cart/Cart/Cart';
 import Checkout from '@/components/Cart/Checkout/Checkout';
 import MainLayout from '@/components/Layouts/MainLayouts';
 import SportDetails from '@/components/SingleProduct/SportDetails/SportDetails';
+import Contact from '@/pages/Contact/Contact';
 import Home from '@/pages/Home/Home';
 
 import NotFound from '@/pages/shared/NotFound';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'addProduct',
         element: <AddProduct />,
+      },
+      {
+            path:'contact',
+          element:<Contact />
       },
        
     {

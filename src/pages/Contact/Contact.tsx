@@ -1,9 +1,11 @@
+import ContactUs from "@/components/ContactUs/ContactUs";
 
 
 const Contact = () => {
     return (
         <div>
-            <h1>this is contact page add</h1>
+             
+             <ContactUs />
         </div>
     );
 };

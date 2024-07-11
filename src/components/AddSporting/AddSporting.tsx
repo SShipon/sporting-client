@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import { useAddProductMutation } from "@/redux/api/api";
+import { toast } from "react-toastify";
 type TProduct = {
   name: string;
   description: string;
@@ -52,7 +53,9 @@ const AddProduct: React.FC = () => {
       isFeatured: true,
       image: "",
     });
-   alert('add product')
+    toast.success("Thank you dear Customer!", {
+      position: "top-right"
+    });
   };
 
   return (
