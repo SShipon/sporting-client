@@ -45,9 +45,15 @@ export type TProduct = {
   export interface Item {
     _id: string;
     name: string;
+    description: string;
+    category: string;
+    brand: string;
+    isFeatured?: boolean;
+    image: string;
+    rating: number;
     quantity: number;
     price: number;
-    image: string
+    stock: number;
     // Add other properties as needed
   }
 

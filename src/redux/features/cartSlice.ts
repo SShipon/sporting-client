@@ -6,6 +6,12 @@ interface CartItem {
   image: string;
   price: number;
   quantity: number;
+  description: string;
+  category: string;
+  brand: string;
+  isFeatured?: boolean;
+  rating: number;
+  stock: number;
 }
 
 interface CartState {
@@ -35,33 +41,52 @@ const cartSlice = createSlice({
       } else {
         state.cart.push(action.payload);
       }
-
+      recalculateTotals(state);
     },
-    deletedSport: (state, action: PayloadAction<string>) => {
+
+    deleteFromCart: (state, action: PayloadAction<string>) => {
       state.cart = state.cart.filter((item) => item._id !== action.payload);
+      recalculateTotals(state);
     },
 
     clearCart: (state) => {
       state.cart = [];
+      state.total_cart_item = 0;
+      state.total_price = 0;
     },
-    setDecrease: (state, action: PayloadAction<string>) => {
+
+    decreaseQuantity: (state, action: PayloadAction<string>) => {
       const item = state.cart.find((item) => item._id === action.payload);
       if (item && item.quantity > 1) {
         item.quantity--;
+        recalculateTotals(state);
       }
     },
-    setIncrease: (state, action: PayloadAction<string>) => {
+
+    increaseQuantity: (state, action: PayloadAction<string>) => {
       const item = state.cart.find((item) => item._id === action.payload);
       if (item) {
         item.quantity++;
+        recalculateTotals(state);
       }
     },
+
+    updateCartItem: (state, action: PayloadAction<CartItem>) => {
+      const updatedItem = action.payload;
+      const index = state.cart.findIndex((item) => item._id === updatedItem._id);
+      if (index !== -1) {
+        state.cart[index] = { ...state.cart[index], ...updatedItem };
+        recalculateTotals(state);
+      }
+    },
+
     totalSportingCartItem: (state) => {
       state.total_cart_item = state.cart.reduce(
         (total, item) => total + item.quantity,
         0
       );
     },
+
     sportingTotalPrice: (state) => {
       state.total_price = state.cart.reduce(
         (total, item) => total + item.price * item.quantity,
@@ -71,12 +96,18 @@ const cartSlice = createSlice({
   },
 });
 
+const recalculateTotals = (state: CartState) => {
+  state.total_cart_item = state.cart.reduce((total, item) => total + item.quantity, 0);
+  state.total_price = state.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+};
+
 export const {
   addToCart,
-  deletedSport,
+  deleteFromCart,
   clearCart,
-  setDecrease,
-  setIncrease,
+  decreaseQuantity,
+  increaseQuantity,
+  updateCartItem,
   totalSportingCartItem,
   sportingTotalPrice,
 } = cartSlice.actions;

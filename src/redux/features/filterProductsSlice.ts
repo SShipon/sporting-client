@@ -57,6 +57,7 @@ const filterSlice = createSlice({
       const { name, value } = action.payload;
       (state.filters[name] as string | number) = value;
     },
+    
     filterProducts: (state) => {
       let tempProducts = [...state.all_products];
       const { text, category, price } = state.filters;
