@@ -34,7 +34,7 @@ if (isLoading) {
           <div className="product_data text-black p-5">
             <h1 className="text-4xl mb-3">{products?.name}</h1>
             <p className="product-real-price font-bold  mb-3">
-              <p> Price : {products?.price}$</p>
+              <p> Price : ${products?.price}</p>
             </p>
             <h1>{products?.description}</h1>
             <div className="product-data-warranty flex gap-5 mt-5 mb-5">

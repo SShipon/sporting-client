@@ -5,8 +5,8 @@ import "./Cart.css";
 
 import {
   clearCart,
-  totalCartItem,
-  cartTotalPrice,
+  totalSportingCartItem,
+  sportingTotalPrice,
 } from "@/redux/features/cartSlice";
 import CartItem from "../CartItem/CartItem";
 import { Button } from "@/components/ui/button";
@@ -20,14 +20,14 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(totalCartItem());
-    dispatch(cartTotalPrice());
+    dispatch(totalSportingCartItem());
+    dispatch(sportingTotalPrice());
   }, [cart, dispatch]);
 
   if (!cart || cart.length === 0) {
     return (
       <div>
-        <h3 className="empty-cart">No Item In The Cart</h3>
+        <h3 className="text-center font-bold text-4xl  m-32 mx-auto ">Sporting Products Not available  available please your add product</h3>
       </div>
     );
   }
@@ -35,8 +35,8 @@ const Cart = () => {
   return (
     <div className="my-20">
       <div className="flex lg:flex-row flex-col justify-between">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-          <div className="cart-item">
+        <div className="">
+          <div>
             {cart.map((item: Item) => ( // Ensure item is typed as Item
               <CartItem key={item._id} item={item} />
             ))}

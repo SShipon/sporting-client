@@ -1,15 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// Define the product type
 interface Product {
-  id: string;
+  _id: string; // MongoDB id
   name: string;
   category: string;
   price: number;
   // Add other product fields as needed
 }
 
-// Define the filters type
 interface Filters {
   text: string;
   category: string;
@@ -18,7 +16,6 @@ interface Filters {
   maxPrice: number;
 }
 
-// Define the initial state type
 interface FilterState {
   all_products: Product[];
   filter_products: Product[];
@@ -26,7 +23,6 @@ interface FilterState {
   filters: Filters;
 }
 
-// Define the type for the payload of the updateFiltersValue action
 interface UpdateFiltersPayload {
   name: keyof Filters;
   value: string | number;
@@ -63,7 +59,6 @@ const filterSlice = createSlice({
     },
     filterProducts: (state) => {
       let tempProducts = [...state.all_products];
-
       const { text, category, price } = state.filters;
 
       if (text) {
@@ -115,6 +110,7 @@ const filterSlice = createSlice({
       };
       state.filter_products = state.all_products;
     },
+    
   },
 });
 

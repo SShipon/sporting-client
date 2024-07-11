@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://sporting-server-1.onrender.com'}),
-  tagTypes: ['product'],
+  tagTypes: ['sporting'],
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: (featured) => {
@@ -17,7 +17,7 @@ export const baseApi = createApi({
           params: params
         };
       },
-      providesTags: ['product']
+      providesTags: ['sporting']
     }),
 
 
@@ -27,7 +27,7 @@ export const baseApi = createApi({
         method: 'POST',
         body: newProduct,
       }),
-      invalidatesTags: ['product'],
+      invalidatesTags: ['sporting'],
     }),  
 
     getSingleProduct: builder.query({
@@ -45,7 +45,7 @@ export const baseApi = createApi({
           body: options.data,
         };
       },
-      invalidatesTags: ['product']
+      invalidatesTags: ['sporting']
     }),
 
     deleteProduct: builder.mutation({
@@ -53,7 +53,7 @@ export const baseApi = createApi({
         url: `/sport/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['product']
+      invalidatesTags: ['sporting']
     }),
   }),
 });

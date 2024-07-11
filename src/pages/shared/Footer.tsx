@@ -1,6 +1,31 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div>
       <footer className="bg-gray-800 w-[100%] h-[100%] text-white py-8">
@@ -84,11 +109,20 @@ const Footer = () => {
           {/* Footer Bottom */}
           <div className="mt-8 border-t border-gray-700 pt-4 text-center">
             <p className='lg:text-xl text-base'>
-            ©{new Date().getFullYear()} sporting goods All rights reserved
-          </p>
+              ©{new Date().getFullYear()} sporting goods All rights reserved
+            </p>
           </div>
         </div>
       </footer>
+
+      {showButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-700"
+        >
+          <FaArrowUp size={24} />
+        </button>
+      )}
     </div>
   );
 };
