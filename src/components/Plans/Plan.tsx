@@ -23,11 +23,11 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     };
 
     return (
-        <div className={`flex flex-col justify-between items-stretch h-full bg-white rounded-lg shadow-md relative 
-            ${isProPlan ? 'border-4 -top-10 border-t-0 border-red-400  rounded-t-[20px]' : 'border border-violet-400'}`}>
-            <div className={`relative ${isProPlan ? 'lg:p-0 p-4' : ''}`}>
+        <div className={`flex flex-col justify-between items-stretch h-full bg-white rounded-lg shadow-md lg:relative 
+            ${isProPlan ? 'border-4 lg:-top-10 lg:border-t-0 border-red-400   lg:rounded-t-[20px]' : 'border border-violet-400'}`}>
+            <div className={`lg:relative ${isProPlan ? 'lg:p-0' : ''}`}>
                 {/* Top button (Plan Name) */}
-                <Button className={`block mx-auto w-full mb-4 ${isProPlan ? 'bg-red-400 text-white rounded-none rounded-t-[18px] hover:bg-red-500' : 'bg-violet-400 text-white rounded-b-[0px] hover:bg-violet-500'}`}>
+                <Button className={`block mx-auto w-full mb-4 ${isProPlan ? 'bg-red-400 text-white rounded-none lg:rounded-t-[18px] hover:bg-red-500' : 'bg-violet-400 text-white lg:rounded-b-[0px] hover:bg-violet-500'}`}>
                     {planName}
                 </Button>
 
