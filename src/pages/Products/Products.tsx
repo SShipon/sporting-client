@@ -1,23 +1,52 @@
-import { useGetProductsQuery } from "@/redux/api/api";
+import { useSelector } from "react-redux";
+import FilterSporting from "@/components/Product/FilterSporting/FilterSporting";
+import SportingSort from "@/components/Product/SportingSort/SportingSort";
+import SportingCard from "@/components/Product/SportingCard/SportingCard";
+
+// Your defined types
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  brand: string;
+  isFeatured: boolean;
+  image: string;
+  rating: number;
+  quantity: number;
+  price: number;
+  stockQuantity: number;
+}
+
+interface FilterState {
+  filter_products: Product[];
+  isLoading: boolean;
+}
+
+interface RootState {
+  filter: FilterState;
+}
 
 const Products = () => {
-  const { data: products, error, isLoading } = useGetProductsQuery(undefined);
+  const { filter_products, isLoading } = useSelector(
+    (state: RootState) => state.filter
+  );
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading products.</div>;
+  if (isLoading) {
+    return <p className="text-2xl text-center text-red-500">Loading .... </p>;
+  }
 
   return (
-    <div className="my-20">
-      <div className="container mx-auto ">
-        <div className="grid grid-cols-4 gap-4">
-          {products.map((product) => (
-            <div key={product.id} className="">
-              <h2 className="text-xl font-bold">{product.name}</h2>
-              <p>{product.description}</p>
-              <p className="text-lg font-semibold">{product.price}</p>
-              <img src={product.images} alt="" srcset="" />
-            </div>
-          ))}
+    <div className="my-20 mx-5">
+      <div className="flex lg:flex-row flex-col">
+        <div className="lg:basis-1/1">
+          <FilterSporting />
+        </div>
+        <div className="lg:basis-9/12">
+          <SportingCard products={filter_products} />
+        </div>
+        <div className="lg:basis-1/1">
+          <SportingSort />
         </div>
       </div>
     </div>
@@ -25,20 +54,3 @@ const Products = () => {
 };
 
 export default Products;
-
-
-
-{/*<section>
-<FilterSection></FilterSection>
-</section>
-
-<section className="product-view-sort">
-
-<div className="sort-filter">
-  <Sort></Sort>
-</div>
-
-<div className="main-product">
-  <ProductList></ProductList>
-</div>
-</section>*/}

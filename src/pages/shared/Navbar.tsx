@@ -46,6 +46,12 @@ const Navbar = () => {
               Products
             </Link>
             <Link
+              to="/addProduct"
+              className="block py-2 text-gray-800 hover:text-gray-400"
+            >
+              Add Product
+            </Link>
+            <Link
               to="/contact"
               className="block py-2 text-gray-800 hover:text-gray-400"
             >
