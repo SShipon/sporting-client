@@ -61,7 +61,7 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
         setIncrease={setIncrease}
       ></CartAmountToggle>
 
-      
+      {/* Use NavLink only for navigation purposes, handleAddToCart will be called automatically */}
       <NavLink to="/cart">
         <Button className="w-full font-bold bg-pink-600" onClick={handleAddToCart}>
           Add To Cart
