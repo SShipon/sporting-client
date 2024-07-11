@@ -5,12 +5,13 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 import { Button } from '@/components/ui/button';
+import { Item } from '@/types'; // Import CartItem type
 
 interface Products {
   _id: string;
   stock: number;
   name: string;
-  image: string,
+  image: string;
   price: number;
 }
 
@@ -27,14 +28,28 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
   const [quantity, setQuantity] = useState(1);
 
   const setIncrease = () => {
-    quantity < stock ? setQuantity(quantity + 1) : setQuantity(stock);
+    setQuantity(prevQuantity => prevQuantity < stock ? prevQuantity + 1 : stock);
   };
+
   const setDecrease = () => {
-    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1);
+    setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ _id, name, image, price, quantity }));
+    const payload: Item = {
+      _id,
+      name,
+      image,
+      price,
+      quantity,
+      description: '', 
+      category: '',    
+      brand: '',       
+      rating: 0,       
+      stock: 0         
+    };
+
+    dispatch(addToCart(payload));
   };
 
   return (
@@ -46,8 +61,11 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
         setIncrease={setIncrease}
       ></CartAmountToggle>
 
-      <NavLink to="/cart" onClick={handleAddToCart}>
-        <Button className="w-full font-bold bg-pink-600">Add To Cart</Button>
+      
+      <NavLink to="/cart">
+        <Button className="w-full font-bold bg-pink-600" onClick={handleAddToCart}>
+          Add To Cart
+        </Button>
       </NavLink>
     </div>
   );

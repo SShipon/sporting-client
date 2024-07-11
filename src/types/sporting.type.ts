@@ -61,7 +61,7 @@ export type TProduct = {
   //start filter type  component
 
   export interface FProduct {
-    id: string;
+    _id: string;
     name: string;
     category: string;
     price: number;
