@@ -71,7 +71,7 @@ const AddProduct: React.FC = () => {
               value={product.name}
               onChange={handleChange}
               placeholder="Product Name"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
             <textarea
@@ -79,7 +79,7 @@ const AddProduct: React.FC = () => {
               value={product.description}
               onChange={handleChange}
               placeholder="Description"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full w-48 p-2 mb-4 border border-gray-300 rounded"
               required
             />
             <input
@@ -88,7 +88,7 @@ const AddProduct: React.FC = () => {
               value={product.price || ""}
               onChange={handleChange}
               placeholder="Price"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
           </div>
@@ -100,7 +100,7 @@ const AddProduct: React.FC = () => {
               value={product.stock || ""}
               onChange={handleChange}
               placeholder="Stock Quantity"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
             <input
@@ -109,7 +109,7 @@ const AddProduct: React.FC = () => {
               value={product.category}
               onChange={handleChange}
               placeholder="Category"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
             <input
@@ -118,7 +118,7 @@ const AddProduct: React.FC = () => {
               value={product.brand}
               onChange={handleChange}
               placeholder="Brand"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
 
@@ -131,7 +131,7 @@ const AddProduct: React.FC = () => {
               value={product.quantity || ""}
               onChange={handleChange}
               placeholder="Quantity"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
             <input
@@ -141,7 +141,7 @@ const AddProduct: React.FC = () => {
               value={product.rating || ""}
               onChange={handleChange}
               placeholder="Rating"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               max="5"
               required
             />
@@ -151,7 +151,7 @@ const AddProduct: React.FC = () => {
               value={product.image}
               onChange={handleChange}
               placeholder="Image URL"
-              className="w-full p-2 mb-4 border border-gray-300 rounded"
+              className="lg:w-full p-2 mb-4 border border-gray-300 rounded"
               required
             />
           </div>
@@ -160,7 +160,7 @@ const AddProduct: React.FC = () => {
        <div className="lg:mx-32  w-96 mx-auto ">
        <button
             type="submit"
-           className="w-full font-bold bg-pink-600 p-2"
+           className="lg:w-full rounded-sm text-white font-bold bg-pink-600 p-2"
           >
             Add Product
           </button>

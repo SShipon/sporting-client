@@ -10,7 +10,7 @@ interface Props {
 
 const SportingCard: React.FC<Props> = ({ products }) => {
   return (
-    <div className="mt-10 mx-5">
+    <div className="mt-10 lg:mx-5">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
         {products?.map((product) => (
           <div key={product._id} className="w-full max-w-xs relative">

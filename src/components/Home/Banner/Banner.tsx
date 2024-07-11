@@ -26,7 +26,7 @@ const Banner = () => {
       </NavLink>
         </div>
 
-        <div className="basis-1/2">
+        <div className="basis-1/2 py-4">
             <SliderBanner />
         </div>
       </div>

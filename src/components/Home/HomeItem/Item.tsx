@@ -4,7 +4,7 @@ import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 
 const Item: React.FC<Props> = ({ products }) => {
   return (
-    <div className="mt-10 mx-20">
+    <div className="mt-10 lg:mx-20">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
         {products.slice(0, 8)?.map((product) => (
           <div key={product._id} className="w-full max-w-xs relative"> {/* Fixed width set */}
