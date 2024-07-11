@@ -96,7 +96,7 @@ const Plans = () => {
   return (
     <div className="mt-10 lg:mx-20">
         <div className="text-center my-12">
-            <h3 className="text-4xl font-bold uppercase">Choose a web hosting plan</h3>
+            <h3 className="lg:text-4xl text-2xl font-bold uppercase">Choose a web hosting plan</h3>
             <p className="text-base p-4">Pick a web hosting plan and get a free domain name for your website.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
