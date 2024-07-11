@@ -45,7 +45,7 @@ const Cart = () => {
           {/* Add other components as needed */}
         </div>
 
-        <div className="flex">
+        <div className="flex lg:my-0 my-10">
           <div className="py-2 px-5">
             <div className="py-2">
               <Button className="bg-fuchsia-500">
@@ -62,29 +62,29 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className="bg-gray-700 w-[400px] h-[230px] p-5 rounded-2xl">
+          <div className="bg-gray-700 lg:w-[400px] lg:h-[230px] w-full p-5 rounded-2xl">
             <div className="text-white">
               <p className="">
                 Total Items:
-                <span className="text-2xl px-2">${total_cart_item}</span>{" "}
+                <span className="lg:text-2xl text-base px-2">${total_cart_item}</span>{" "}
               </p>
 
               <p>
-                Subtotal: <span className="text-2xl px-2">${total_price}</span>
+                Subtotal: <span className="lg:text-2xl text-base px-2">${total_price}</span>
               </p>
 
               <p>
                 Shipping Fee:{" "}
-                <span className="text-2xl px-2">${shipping_fee}</span>{" "}
+                <span className="lg:text-2xl text-1xl px-2">${shipping_fee}</span>{" "}
               </p>
 
               <p>
-                Order Total :{" "}
-                <span className="text-2xl px-2">${shipping_fee + total_price}</span>{" "}
+                 Total :{" "}
+                <span className="lg:text-2xl text-base px-2">${shipping_fee + total_price}</span>{" "}
               </p>
 
               <div className="py-4">
-                <Button className="w-full font-bold bg-pink-600">
+                <Button className="lg:w-56 block mx-auto font-bold bg-pink-600">
                   <NavLink to="/checkout">Checkout</NavLink>
                 </Button>
               </div>
