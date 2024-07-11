@@ -157,7 +157,7 @@ const AddProduct: React.FC = () => {
        <div className="lg:mx-32  w-96 mx-auto ">
        <button
             type="submit"
-            className=" bg-blue-500 text-white p-2 lg:mx-24 w-full  rounded hover:bg-blue-600"
+           className="w-full font-bold bg-pink-600 p-2"
           >
             Add Product
           </button>

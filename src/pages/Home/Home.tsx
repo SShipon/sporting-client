@@ -1,7 +1,8 @@
 
-import { AccordionFAQ } from "@/components/Home/AccordionFAQ/AccordionFAQ";
+import AccordionCom from "@/components/Home/AccordionFAQ/AccordionCom";
 import Banner from "@/components/Home/Banner/Banner";
 import HomeItem from "@/components/Home/HomeItem/HomeItem";
+import SportingLogo from "@/components/Home/SportingLogo/SportingLogo";
 
 
 
@@ -16,7 +17,8 @@ const Home = () => {
         <div>
             <Banner />
               <HomeItem />
-             <AccordionFAQ />
+           <AccordionCom />
+             <SportingLogo />
         </div>
     );
 };

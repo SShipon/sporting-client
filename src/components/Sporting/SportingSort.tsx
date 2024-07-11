@@ -46,20 +46,21 @@ const SportingSort = () => {
           <p>{`${filteredProducts.length} Products Available`}</p>
         </div>
         <div className="sort-selection">
-          <form action="#">
-            <label htmlFor="sort"></label>
-            <select
-              name="sort"
-              id="sort"
-              value={sorting_value}
-              onChange={handleSortingChange}
-            >
-              <option value="lowest">Price (lowest)</option>
-              <option value="highest">Price (highest)</option>
-              <option value="a-z">Name (A-Z)</option>
-              <option value="z-a">Name (Z-A)</option>
-            </select>
-          </form>
+        <form action="#" className="mx-5 my-4">
+      <label htmlFor="sort" className="sr-only">Sort By:</label>
+      <select
+        className="border-2 border-pink-700 rounded-md p-2 w-full sm:w-auto"
+        name="sort"
+        id="sort"
+        value={sorting_value}
+        onChange={handleSortingChange}
+      >
+        <option value="lowest">Price (lowest)</option>
+        <option value="highest">Price (highest)</option>
+        <option value="a-z">Name (A-Z)</option>
+        <option value="z-a">Name (Z-A)</option>
+      </select>
+    </form>
         </div>
       </div>
     </div>

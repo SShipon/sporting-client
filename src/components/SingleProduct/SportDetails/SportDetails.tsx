@@ -33,7 +33,6 @@ if (isLoading) {
           </div>
           <div className="product_data text-black p-5">
             <h1 className="text-4xl mb-3">{products?.name}</h1>
-            {/* <Stars stars={stars} reviews={reviews}></Stars> */}
             <p className="product-real-price font-bold  mb-3">
               <p> Price : {products?.price}$</p>
             </p>

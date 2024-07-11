@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className={`fixed w-full z-10 transition-colors duration-300 ${scrolled ? 'bg-blue-600' : 'bg-white'} shadow-md`}>
+      <nav className={`fixed w-full z-10 transition-colors duration-300 ${scrolled ? 'bg-[#f4ecdf]' : 'bg-white'} shadow-md`}>
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-gray-800">Sporting Goods</div>
           <div className="md:hidden">

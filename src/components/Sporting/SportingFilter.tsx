@@ -34,7 +34,7 @@ const SportingFilter = () => {
   }
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg">
+    <div className="p-4 bg-white shadow-md rounded-lg my-10">
       <div className="w-full border-rose-700 mb-4">
         <form onSubmit={(e) => e.preventDefault()} className="flex flex-col md:flex-row md:items-center md:space-x-4">
           <input
@@ -56,9 +56,9 @@ const SportingFilter = () => {
         </form>
       </div>
 
-      <div className="my-4">
+      <div className="my-4 ">
         <h4 className="py-4">Category</h4>
-        <div className="flex flex-col md:flex-row md:items-center md:space-x-4 text-justify">
+        <div className="flex flex-col md:flex-row md:items-center md:space-x-4 text-justify ">
           {categoryOnlyData.map((curElem, index) => (
             <button
               key={index}
@@ -104,7 +104,7 @@ const SportingFilter = () => {
         </div>
       </div>
 
-      <div className="my-4 text-center">
+      <div className="my-4 ">
         <button 
           onClick={() => dispatch(clearFilters())} 
           className="p-2 bg-red-500 text-white rounded-md"

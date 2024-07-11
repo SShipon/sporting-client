@@ -4,6 +4,7 @@ import CartAmountToggle from '../CartAmountToggle/CartAmountToggle';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
+import { Button } from '@/components/ui/button';
 
 interface Products {
   _id: string;
@@ -46,7 +47,7 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
       ></CartAmountToggle>
 
       <NavLink to="/cart" onClick={handleAddToCart}>
-        <button className="addButton">Add To Cart</button>
+        <Button className="w-full font-bold bg-pink-600">Add To Cart</Button>
       </NavLink>
     </div>
   );

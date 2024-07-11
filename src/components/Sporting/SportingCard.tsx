@@ -17,7 +17,7 @@ const SportingCard: React.FC<Props> = ({ products }) => {
             <Link to={`/sportDetails/${product._id}`} className="block w-full">
               <div className="bg-white shadow-md rounded-xl overflow-hidden hover:rounded-xl hover:bg-opacity-70 transition duration-300">
                 <img
-                  className="w-full h-48 object-cover object-center block mx-auto"
+                  className="w-50 h-48 object-cover object-center block mx-auto"
                   src={product.image}
                   alt={product.name}
                   loading="lazy"
