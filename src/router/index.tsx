@@ -1,8 +1,9 @@
 import AboutUs from '@/components/About Us/AboutUs';
-import AddProduct from '@/components/AddProduct/AddProduct';
+import AddProduct from '@/components/AddSporting/AddSporting';
 import Cart from '@/components/Cart/Cart/Cart';
 import MainLayout from '@/components/Layouts/MainLayouts';
-import SingleProduct from '@/components/SingleProduct/SingleProduct/SingleProduct';
+import SportDetails from '@/components/SingleProduct/SportDetails/SportDetails';
+
 import Home from '@/pages/Home/Home';
 import Products from '@/pages/Products/Products';
 
@@ -37,8 +38,8 @@ const router = createBrowserRouter([
        
     {
 
-      path: 'singleProduct/:id',
-      element:<SingleProduct />
+      path: 'sportDetails/:id',
+      element:<SportDetails />
     },
 
     {

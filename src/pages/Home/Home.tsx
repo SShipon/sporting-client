@@ -1,5 +1,6 @@
+import Banner from "@/components/Home/Banner/Banner";
 
-import Banner from "@/components/Home/Banner";
+
 
 
 

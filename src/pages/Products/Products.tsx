@@ -3,9 +3,9 @@ import FilterSporting from "@/components/Product/FilterSporting/FilterSporting";
 import SportingSort from "@/components/Product/SportingSort/SportingSort";
 import SportingCard from "@/components/Product/SportingCard/SportingCard";
 
-// Your defined types
+// Your defined types 
 interface Product {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   category: string;

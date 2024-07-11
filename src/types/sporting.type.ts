@@ -28,3 +28,17 @@ export type TProduct = {
     featureProducts: [],
     singleProduct: null,
   };
+
+
+ export type TProducts = {
+    name: string;
+    description: string;
+    category: string;
+    brand: string;
+    isFeatured: boolean;
+    image: string;
+    rating?: number;
+    quantity?: number;
+    price?: number;
+    stock?: number;
+  };

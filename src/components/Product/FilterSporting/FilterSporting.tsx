@@ -38,7 +38,7 @@ const FilterSporting = () => {
 
   return (
     <div>
-      <div className="filter-search pt-8 my-20">
+      <div className="w-full border-rose-700">
         <form onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"

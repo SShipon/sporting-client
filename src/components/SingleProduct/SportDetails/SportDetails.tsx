@@ -3,7 +3,7 @@
 import { useParams } from 'react-router-dom';
 
 import {  TbTruckDelivery } from 'react-icons/tb';
-import { MdSecurity } from 'react-icons/md';
+
 
 import { useGetSingleProductQuery } from '@/redux/api/api';
 import AddToCart from '../AddToCart/AddToCart';
@@ -12,7 +12,7 @@ import AddToCart from '../AddToCart/AddToCart';
 
 
 
-const SingleProduct = () => {
+const SportDetails = () => {
   
 const { id } = useParams();
 const { data: products, isLoading } = useGetSingleProductQuery(id);
@@ -47,10 +47,7 @@ if (isLoading) {
                 <TbTruckDelivery className="text-3xl"></TbTruckDelivery>
                 <p>Your Delivery</p>
               </div>
-              <div>
-                <MdSecurity className="text-3xl"></MdSecurity>
-                <p>Year Warranty</p>
-              </div>
+              
             </div>
             <hr />
 
@@ -71,4 +68,4 @@ if (isLoading) {
   );
 };
 
-export default SingleProduct;
+export default SportDetails;

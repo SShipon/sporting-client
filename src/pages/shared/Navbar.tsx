@@ -1,17 +1,35 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import './Navbar.css'; // Import the CSS file
 
 const Navbar = () => {
-    const [navOpen, setNavOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    const handleToggle = () => {
-      setNavOpen(!navOpen);
+  const handleToggle = () => {
+    setNavOpen(!navOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div>
-      <nav className="bg-white shadow-md fixed w-full z-10">
+      <nav className={`fixed w-full z-10 transition-colors duration-300 ${scrolled ? 'bg-blue-600' : 'bg-white'} shadow-md`}>
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-gray-800">Sporting Goods</div>
           <div className="md:hidden">
@@ -57,14 +75,6 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            {/* <li>
-              <a
-                href="/contact"
-                className="block py-2 text-gray-800 hover:text-blue-600"
-              >
-                Contact
-              </a>
-            </li> */}
           </ul>
         </div>
       </nav>
