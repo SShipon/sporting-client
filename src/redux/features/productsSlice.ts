@@ -1,17 +1,17 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type TProduct = {
-  _id: string;
-  name:string,
-  description: string,
-  category:string
-  stock:number,
-  price:number,
-  quantity:string,
-  isFeatured?:boolean,
-  rating: string,
-
- 
+_id: string;
+name:string,
+description:string,
+category:string,
+brand:string,
+isFeatured:boolean,
+image:string,
+rating:number,
+quantity:number,
+price:number,
+stockQuantity:number,
 };
 
 type TInitialState = {

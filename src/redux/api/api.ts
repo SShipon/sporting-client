@@ -22,15 +22,13 @@ export const baseApi = createApi({
 
 
     addProduct: builder.mutation({
-      query: (data) => {
-        return {
-          url: '/sport',
-          method: 'POST',
-          body: data,
-        };
-      },
-      invalidatesTags: ['product']
-    }),
+      query: (newProduct) => ({
+        url: '/sport',
+        method: 'POST',
+        body: newProduct,
+      }),
+      invalidatesTags: ['product'],
+    }),  
 
     updatedProduct: builder.mutation({
       query: (options) => {

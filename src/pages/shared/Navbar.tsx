@@ -13,7 +13,7 @@ const Navbar = () => {
     <div>
       <nav className="bg-white shadow-md fixed w-full z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-gray-800">FitnessFactory</div>
+          <div className="text-2xl font-bold text-gray-800">Sporting Goods</div>
           <div className="md:hidden">
             <button
               onClick={handleToggle}

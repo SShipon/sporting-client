@@ -9,9 +9,9 @@ const Footer = () => {
             {/* Contact Information */}
             <div className="mb-6 md:mb-0 w-full md:w-auto">
               <h4 className="text-xl font-bold">Contact Us</h4>
-              <p>Email: info@fitnessfactory.com</p>
+              <p>Email: info@sporting.com</p>
               <p>Phone: +123 456 7890</p>
-              <p>Address: 123 Fitness St, Muscle City, FIT 12345</p>
+              <p>Address: 123 sporting St, Cumilla City, FIT 13254</p>
             </div>
 
             {/* Social Media Links */}
@@ -83,7 +83,9 @@ const Footer = () => {
 
           {/* Footer Bottom */}
           <div className="mt-8 border-t border-gray-700 pt-4 text-center">
-            <p>&copy; 2024 Fitness Factory. All rights reserved.</p>
+            <p className='lg:text-xl text-base'>
+            ©{new Date().getFullYear()} sporting goods All rights reserved
+          </p>
           </div>
         </div>
       </footer>
