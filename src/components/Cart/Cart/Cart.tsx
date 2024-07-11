@@ -45,7 +45,7 @@ const Cart = () => {
           {/* Add other components as needed */}
         </div>
 
-        <div className="flex lg:my-0 my-10">
+        <div className="flex  lg:flex-row flex-col lg:my-0 my-10">
           <div className="py-2 px-5">
             <div className="py-2">
               <Button className="bg-fuchsia-500">
