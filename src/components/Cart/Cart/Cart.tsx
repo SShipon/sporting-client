@@ -2,19 +2,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './Cart.css';
 import { useEffect } from 'react';
-import { clearCart } from '@/redux/features/cartSlice';
+import { clearCart, totalCartItem, cartTotalPrice } from '@/redux/features/cartSlice';
 import CartItem from '../CartItem/CartItem';
 import { RootState } from '../../redux/store'; // Adjust the path to your store
 
 const Cart = () => {
-  const { cart, total_price, shipping_fee } = useSelector(
+  const { cart, total_price, shipping_fee, total_cart_item } = useSelector(
     (state: RootState) => state.cart
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('Cart State:', cart); // Log the cart state when component mounts
-  }, [cart]);
+    dispatch(totalCartItem());
+    dispatch(cartTotalPrice());
+  }, [cart, dispatch]);
 
   if (!cart || cart.length === 0) {
     return (
@@ -30,7 +31,7 @@ const Cart = () => {
         <p>Item</p>
         <p className="cart-hide">Price</p>
         <p>Quantity</p>
-        <div className="cart-hide">Subtotal</div>
+        <p className="cart-hide">Subtotal</p>
         <p>Remove</p>
       </div>
       <hr />
@@ -51,6 +52,10 @@ const Cart = () => {
       {/* ------TOTAL PRICE ----------*/}
       <div className="order-total--amount">
         <div className="order-total--subdata">
+          <div className="total-field">
+            <p>Total Items:</p>
+            <p>{total_cart_item}</p>
+          </div>
           <div className="total-field">
             <p>subtotal:</p>
             <p>{total_price}</p>

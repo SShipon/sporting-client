@@ -12,6 +12,7 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
+  console.log(item,)
   return (
     <div className="cart-item">
       <div>{item.name}</div>
