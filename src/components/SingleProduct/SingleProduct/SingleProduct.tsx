@@ -6,7 +6,9 @@ import {  TbTruckDelivery } from 'react-icons/tb';
 import { MdSecurity } from 'react-icons/md';
 
 import { useGetSingleProductQuery } from '@/redux/api/api';
-// import AddToCart from '../AddToCart/AddToCart';
+import AddToCart from '../AddToCart/AddToCart';
+
+
 
 
 
@@ -61,7 +63,7 @@ if (isLoading) {
               </p>
             </div>
             <hr />
-            {/* {products.stock > 0 && <AddToCart singleProduct={products}></AddToCart>} */}
+            {products.stock > 0 && <AddToCart singleProduct={products}></AddToCart>}
           </div>
         </div>
       </section>

@@ -5,21 +5,23 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 
-interface Product {
+interface Products {
   id: string;
   stock: number;
   name: string;
-  images: { url: string };
+  image: { url: string };
   price: number;
 }
 
 interface AddToCartProps {
-  singleProduct: Product;
+  singleProduct: Products;
 }
 
 const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
+  console.log(singleProduct, 'data card add '); // Log the singleProduct object
+
   const dispatch = useDispatch();
-  const { id, stock, name, images, price } = singleProduct;
+  const { id, stock, name, image, price } = singleProduct;
 
   const [quantity, setQuantity] = useState(1);
 
@@ -31,13 +33,12 @@ const AddToCart: React.FC<AddToCartProps> = ({ singleProduct }) => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id, name, image: images.url, price, quantity }));
+    dispatch(addToCart({ id, name, image: image.url, price, quantity }));
   };
 
   return (
     <div>
       <hr />
-      {/* add to cart */}
       <CartAmountToggle
         quantity={quantity}
         setDecrease={setDecrease}

@@ -1,15 +1,16 @@
-
+// src/redux/features/cartSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 interface CartItem {
-  id: string; // or whatever type your id is
+  id: string;
   name: string;
-  image: string; // assuming image is a string URL
+  image: string;
   price: number;
   quantity: number;
 }
 
 interface CartState {
-  cart: [];
+  cart: CartItem[];
   total_cart_item: number;
   total_price: number;
   shipping_fee: number;

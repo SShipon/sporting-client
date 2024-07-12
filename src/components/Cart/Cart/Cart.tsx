@@ -1,12 +1,10 @@
-
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './Cart.css';
-import CartItem from '../CartItem/CartItem';
-import { clearCart } from '@/redux/Features/cartSlice';
-
 import { useEffect } from 'react';
-import { RootState } from '@reduxjs/toolkit/query';
+import { clearCart } from '@/redux/features/cartSlice';
+import CartItem from '../CartItem/CartItem';
+import { RootState } from '../../redux/store'; // Adjust the path to your store
 
 const Cart = () => {
   const { cart, total_price, shipping_fee } = useSelector(
@@ -14,9 +12,9 @@ const Cart = () => {
   );
   const dispatch = useDispatch();
 
-   useEffect(() => {
-     console.log('Cart State:', cart); // Log the cart state when component mounts
-   }, [cart]);
+  useEffect(() => {
+    console.log('Cart State:', cart); // Log the cart state when component mounts
+  }, [cart]);
 
   if (!cart || cart.length === 0) {
     return (
@@ -37,8 +35,8 @@ const Cart = () => {
       </div>
       <hr />
       <div className="cart-item">
-        {cart.map((curElem) => (
-          <CartItem key={curElem.id} {...curElem} />
+        {cart.map((item) => (
+          <CartItem key={item.id} item={item} />
         ))}
       </div>
       <hr />
