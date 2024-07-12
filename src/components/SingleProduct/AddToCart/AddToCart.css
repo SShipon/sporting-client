@@ -1,0 +1,37 @@
+ .colors p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+.btnStyle {
+    width: 25px;
+    height: 25px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-left: 16px;
+    border: none;
+    outline: none;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+.btnStyle:hover {
+      opacity: 1;
+    }
+
+.active {
+    opacity: 1;
+  }
+    .checkStyle {
+    color: #fff;
+    margin-left: 5px;
+  }
+
+  .addButton{
+    background-color: rgb(81, 115, 226);
+    color: white;
+    padding: 10px 25px;
+  }

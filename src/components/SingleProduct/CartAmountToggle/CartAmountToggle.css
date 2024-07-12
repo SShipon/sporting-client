@@ -1,0 +1,16 @@
+.amount-toggle{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+    margin-left: 12px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+}
+
+.amount-style{
+    font-size: 20px;
+    color: rgb(81, 114, 223);
+
+}

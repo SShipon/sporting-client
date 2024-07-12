@@ -1,36 +1,12 @@
+import { TProduct ,initialState} from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 // Define the product type
-type TProduct = {
-  _id: string;
-  name: string;
-  description: string;
-  category: string;
-  brand: string;
-  isFeatured?: boolean;
-  image: string;
-  rating: number;
-  quantity: number;
-  price: number;
-  stock: number;
-};
 
 // Define the initial state type
-type TInitialState = {
-  isLoading: boolean;
-  isError: boolean;
-  products: TProduct[];
-  featureProducts: TProduct[];
-  singleProduct: TProduct | null;
-};
 
-const initialState: TInitialState = {
-  isLoading: false,
-  isError: false,
-  products: [],
-  featureProducts: [],
-  singleProduct: null,
-};
+
+
 
 // Create the slice
 const productSlice = createSlice({

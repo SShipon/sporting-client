@@ -30,6 +30,13 @@ export const baseApi = createApi({
       invalidatesTags: ['product'],
     }),  
 
+    getSingleProduct: builder.query({
+      query: (id) => ({
+        method: 'GET',
+        url: `/sport/${id}`,
+      }),
+    }),
+
     updatedProduct: builder.mutation({
       query: (options) => {
         return {
@@ -51,4 +58,4 @@ export const baseApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useUpdatedProductMutation, useAddProductMutation, useDeleteProductMutation } = baseApi;
+export const { useGetProductsQuery, useUpdatedProductMutation, useAddProductMutation, useDeleteProductMutation , useGetSingleProductQuery} = baseApi;

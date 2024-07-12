@@ -1,6 +1,7 @@
 import AboutUs from '@/components/About Us/AboutUs';
 import AddProduct from '@/components/AddProduct/AddProduct';
 import MainLayout from '@/components/Layouts/MainLayouts';
+import SingleProduct from '@/components/SingleProduct/SingleProduct/SingleProduct';
 import Home from '@/pages/Home/Home';
 import Products from '@/pages/Products/Products';
 
@@ -32,6 +33,12 @@ const router = createBrowserRouter([
         path: 'addProduct',
         element: <AddProduct />,
       },
+       
+    {
+
+      path: '/sport/:id',
+      element:<SingleProduct />
+    },
       {
         path: '*',
         element: <NotFound />,
